@@ -4,6 +4,19 @@ import { CustomerController } from "./controller/CustomerController"
 export const Routes = [
 {
     method: "get",
+    route: "/customers/quantity",
+    controller: CustomerController,
+    action: "quantity_dates",
+    queryParams: ["start_date", "end_date"]
+},
+{
+    method: "get",
+    route: "/customers/quantity/sum",
+    controller: CustomerController,
+    action: "quantity_sum",
+},
+{
+    method: "get",
     route: "/customers",
     controller: CustomerController,
     action: "dates",
