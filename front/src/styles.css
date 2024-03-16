@@ -35,6 +35,12 @@ body{
   color: rgb(102, 102, 102);
 }
 
+/* ABOVE IS TIME SELECTOR */
+
+.timeselector{
+  padding: 50px;
+}
+
 /* ABOVE IS RADIO BUTTON */
 
 .radioElement {

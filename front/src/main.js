@@ -3,9 +3,11 @@ const url = 'http://localhost:3000/'
 let data = [300, 100, 300]
 
 
-async function fetchCustomers() {
+async function fetchCustomers(start_date, end_date) {
+    start_date.toString().padStart(2, '0')
+    end_date.toString().padStart(2, '0')
     try {
-        const response = await axios.get(url + 'customers/quantity?start_date=2024-01-01&end_date=2024-04-01')
+        const response = await axios.get(url + `customers/quantity?start_date=2023-${start_date}-01&end_date=2023-${end_date}-01`)
     
         const { data } = response;
     
@@ -54,7 +56,7 @@ async function renderChart(data, chartName, labelNames) {
 }
 
 async function main(){
-    const fetched_data = await fetchCustomers()
+    const fetched_data = await fetchCustomers(1, 10)
     const total_customers = await fetchTotalCustomers()
     console.log(fetched_data)
     console.log(total_customers)
@@ -83,3 +85,7 @@ async function main(){
 }
 
 main()
+
+function test(){
+    console.log('test')
+}
