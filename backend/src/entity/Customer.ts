@@ -9,6 +9,9 @@ export class Customer {
     @Column()
     lastName: string
 
+    @Column()
+    registerDate: Date
+
     @PrimaryColumn()
     email: string
 

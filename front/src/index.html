@@ -14,39 +14,40 @@
     
 </head>
 <body>
-    <div class="radioElement">
-        <div class="tabs">
-          <input
-            checked=""
-            value="customers"
-            name="selec_chart"
-            id="customers"
-            type="radio"
-            class="input"
-          />
-          <label for="customers" class="label">Customers</label>
-          <input
-            value="orders"
-            name="select_chart"
-            id="orders"
-            type="radio"
-            class="input"
-          />
-          <label for="orders" class="label">Orders</label>
-          <input
-            value="orderItems"
-            name="select_chart"
-            id="orderItems"
-            type="radio"
-            class="input"
-          />
-          <label for="orderItems" class="label">Ordered items</label>
-        </div>
+  <div class="radioElement">
+    <div class="tabs">
+      <input
+        checked=""
+        value="customers"
+        name="select_chart"
+        id="html"
+        type="radio"
+        class="input"
+      />
+      <label for="html" class="label">Customers</label>
+      <input
+        value="orders"
+        name="select_chart"
+        id="css"
+        type="radio"
+        class="input"
+      />
+      <label for="css" class="label">Orders</label>
+      <input
+        value="orderItems"
+        name="select_chart"
+        id="javascript"
+        type="radio"
+        class="input"
+      />
+      <label for="javascript" class="label">Order items</label>
     </div>
-    <div class="chart_container">
-        <canvas id="chart"></canvas>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="main.js"></script>
+</div>
+
+  <div class="chart_container">
+      <canvas id="chart"></canvas>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>

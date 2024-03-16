@@ -1,7 +1,14 @@
 import { UserController } from "./controller/UserController"
 import { CustomerController } from "./controller/CustomerController"
 
-export const Routes = [{
+export const Routes = [
+{
+    method: "get",
+    route: "/customers",
+    controller: CustomerController,
+    action: "dates",
+    queryParams: ["start_date", "end_date"]
+}, {
     method: "get",
     route: "/customers",
     controller: CustomerController,
@@ -9,7 +16,7 @@ export const Routes = [{
 }, {
     method: "get",
     route: "/customers/:id",
-    controller: UserController,
+    controller: CustomerController,
     action: "one"
 }
 // , {

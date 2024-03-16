@@ -92,6 +92,7 @@ body{
     transition: background, color;
     transition-duration: 0.25s;
     transition-timing-function: var(--ease, ease);
+    user-select: none;
   }
   
   .input:not(:checked) + .label:hover {

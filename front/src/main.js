@@ -2,15 +2,19 @@ const url = 'http://localhost:3000/'
 
 async function fetchData() {
     return axios.get(url + 'customers')
-        .then(response => console.log(response.data))
+        .then(response => console.log(response.data.length))
         .catch(error => console.error('Error fetching data:', error))
 }
 
 const chart = document.querySelector('#chart').getContext('2d')
 const radioButtons = document.querySelectorAll('input[name="select_chart"]');
+let customersChart
 
 async function renderChart(data) {  
-    const customersChart = new Chart(chart, {
+    if(customersChart){
+        customersChart.destroy()
+    }
+    customersChart = new Chart(chart, {
       type: 'bar',
       data: {
         labels: ['1', '2', '3'],
@@ -24,25 +28,28 @@ async function renderChart(data) {
       },
       options: {
       }
-    });
+    })
 }
 
 async function main(){
-    // const data = await fetchData()
+    const fetched_data = await fetchData()
     let data = [300, 100, 300]
     radioButtons.forEach(radioButton => {
         radioButton.addEventListener('change', (event) => {
-          const selectedChartType = event.target.value
+            const selectedChartType = event.target.value
 
-          switch(selectedChartType){
-            case 'customers':
-                data = [100, 100, 100]
-            case 'orders':
-                data = [100, 200, 300]
-            case 'orders':
-                data = [300, 200, 100]
-          }
-          renderChart(data)
+            switch(selectedChartType){
+                case 'customers':
+                    data = [100, 100, 100]
+                    break
+                case 'orders':
+                    data = [100, 200, 300]
+                    break
+                case 'orderItems':
+                    data = [300, 200, 100]
+                    break
+            }
+            renderChart(data, (ch) => ch.destroy())
         })
       })
     renderChart(data)
