@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+</head>
+<body>
+    <div class="radioElement">
+        <div class="tabs">
+          <input
+            checked=""
+            value="customers"
+            name="selec_chart"
+            id="customers"
+            type="radio"
+            class="input"
+          />
+          <label for="customers" class="label">Customers</label>
+          <input
+            value="orders"
+            name="select_chart"
+            id="orders"
+            type="radio"
+            class="input"
+          />
+          <label for="orders" class="label">Orders</label>
+          <input
+            value="orderItems"
+            name="select_chart"
+            id="orderItems"
+            type="radio"
+            class="input"
+          />
+          <label for="orderItems" class="label">Ordered items</label>
+        </div>
+    </div>
+    <div class="chart_container">
+        <canvas id="chart"></canvas>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

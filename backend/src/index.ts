@@ -10,7 +10,12 @@ AppDataSource.initialize().then(async () => {
 
     // create express app
     const app = express()
-    app.use(bodyParser.json())
+    app.use(bodyParser.json(), (req, res, next) => {
+        res.setHeader('Access-Control-Allow-Origin', '*')
+         res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE')
+        //  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+         next()
+    })
 
     // register express routes from defined application routes
     Routes.forEach(route => {
