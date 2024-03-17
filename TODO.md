@@ -29,7 +29,7 @@
 ### Future features:
 - [ ] styling for timeselector
 - [ ] data accuracy (when watching single month, dont sum up the values)
-- [ ] top customers
+- [ ✓ ] top customers
 ---
 ### Prev issues I don't have time to fix:
 - migrations don't work

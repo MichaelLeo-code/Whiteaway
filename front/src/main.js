@@ -26,52 +26,68 @@ async function renderChart(data, chartName, labelNames, type) {
 }
 
 async function main(){
-    let fetched_customers = await fetchCustomers(1, 16)
-    let total_customers = await fetchTotalCustomers()
+  let fetched_customers = await fetchCustomers(1, 16)
+  let total_customers = await fetchTotalCustomers()
+  let best_customers = await fetchTopCustomers()
+  const best_customers_list = document.querySelector('.card-list')
+  const best_customers_card = document.querySelector('.card_of_leaders')
 
-    document.querySelector("#total_number").textContent = total_customers
-    renderChart(fetched_customers.customerCounts, "new customers throughout months:", fetched_customers.monthNames, 'bar')   
+  best_customers.forEach(customer => {
+    const li = document.createElement('li')
+    const totalValueSpan = document.createElement('span');
+    li.textContent = `${customer.firstName} ${customer.lastName} - `
+    totalValueSpan.textContent = customer.total_value.toFixed(2) + '$'
+    totalValueSpan.classList.add('total-value')
+    li.appendChild(totalValueSpan)
+    best_customers_list.appendChild(li)
+  });
 
-    radioButtons.forEach(radioButton => {
-      //is it safe to call it async??
-      //may put all the fetches at the end of main to run them when everything is rendered.
-        radioButton.addEventListener('change', async function(event) {
-          const selectedChartType = event.target.value
-          let totalNumber = document.querySelector("#total_number").textContent
-          let totalNumberDescription = document.querySelector("#total_number_description").textContent
+  document.querySelector("#total_number").textContent = total_customers
+  renderChart(fetched_customers.customerCounts, "new customers throughout months:", fetched_customers.monthNames, 'bar')   
 
-          switch(selectedChartType){
+  radioButtons.forEach(radioButton => {
+    //is it safe to call it async??
+    //may put all the fetches at the end of main to run them when everything is rendered.
+      radioButton.addEventListener('change', async function(event) {
+        const selectedChartType = event.target.value
+        let totalNumber = document.querySelector("#total_number")
+        let totalNumberDescription = document.querySelector("#total_number_description").textContent
 
-            case 'customers':
-              const fetched_customers = await fetchCustomers(inputLeft.value, inputRight.value)
-              const total_customers = await fetchTotalOrders()
+        switch(selectedChartType){
 
-              totalNumber = total_customers
-              totalNumberDescription = "Total customers amount:"
-              renderChart(fetched_customers.customerCounts, "new customers throughout months:", fetched_customers.monthNames, 'bar')
-              break
+          case 'customers':
+            const fetched_customers = await fetchCustomers(inputLeft.value, inputRight.value)
+            const total_customers = await fetchTotalCustomers()
 
-            case 'orders':
-              const fetched_orders = await fetchOrders(inputLeft.value, inputRight.value)
-              const total_orders = await fetchTotalOrders()
+            totalNumber.textContent = total_customers
+            totalNumberDescription = "Total customers amount:"
+            best_customers_card.style.display = ""
+            renderChart(fetched_customers.customerCounts, "new customers throughout months:", fetched_customers.monthNames, 'bar')
+            break
 
-              totalNumber = total_orders
-              totalNumberDescription = "Total amount of orders:"
-              renderChart(fetched_orders.orderCounts, "amount of orders throughout months:", fetched_orders.monthNames, 'line')
-              break
+          case 'orders':
+            const fetched_orders = await fetchOrders(inputLeft.value, inputRight.value)
+            const total_orders = await fetchTotalOrders()
 
-            case 'revenue':
-              console.log('revenue')
-              const fetched_revenue = await fetchRevenue(inputLeft.value, inputRight.value)
-              const total_revenue = await fetchTotalRevenue()
+            totalNumber.textContent = total_orders
+            totalNumberDescription = "Total amount of orders:"
+            best_customers_card.style.display = "none"
+            renderChart(fetched_orders.orderCounts, "amount of orders throughout months:", fetched_orders.monthNames, 'line')
+            break
 
-              totalNumber = total_revenue.toFixed(2) + '$'
-              totalNumberDescription = "Total revenue:"
-              renderChart(fetched_revenue.revenues, "revenue each month:", fetched_revenue.monthNames, 'line')
-              break
-          }
-        })
+          case 'revenue':
+            console.log('revenue')
+            const fetched_revenue = await fetchRevenue(inputLeft.value, inputRight.value)
+            const total_revenue = await fetchTotalRevenue()
+
+            totalNumber.textContent = total_revenue.toFixed(2) + '$'
+            totalNumberDescription = "Total revenue:"
+            best_customers_card.style.display = "none"
+            renderChart(fetched_revenue.revenues, "revenue each month:", fetched_revenue.monthNames, 'line')
+            break
+        }
       })
+  })
 }
 
 main()

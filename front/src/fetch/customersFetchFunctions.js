@@ -24,3 +24,9 @@ async function fetchTotalCustomers() {
         .then(response => response.data[0].total_customers)
         .catch(error => console.error('Error fetching data:', error))
 }
+
+async function fetchTopCustomers() {
+    return axios.get(url + 'customers/top')
+        .then(response => response.data)
+        .catch(error => console.error('Error fetching data:', error))
+}

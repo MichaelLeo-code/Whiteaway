@@ -21,6 +21,10 @@ routes.get('/customers/quantity', async (req, res) => {
     }
 })
 
+routes.get('/customers/top', async (req, res) => {
+    res.send(await customerController.top())
+})
+
 routes.get('/orders/quantity', async (req, res) => {
     if(Object.keys(req.query).length === 2){
         res.send(await orderController.quantity_dates(req))
@@ -36,36 +40,3 @@ routes.get('/revenue', async (req, res) => {
         res.send(await revenueController.revenue_sum(req))
     }
 })
-
-
-// export const Routes = [
-
-// //ORDERS
-// {
-//     method: "get",
-//     route: "/orders/quantity",
-//     controller: OrderController,
-//     action: "quantity_dates",
-//     queryParams: ["start_date", "end_date"]
-// },
-// {
-//     method: "get",
-//     route: "/orders/quantity/sum",
-//     controller: OrderController,
-//     action: "quantity_sum",
-// },
-// //REVENUE
-// {
-//     method: "get",
-//     route: "/revenue",
-//     controller: RevenueController,
-//     action: "revenue_dates",
-//     queryParams: ["start_date", "end_date"]
-// },
-// {
-//     method: "get",
-//     route: "/revenue/sum",
-//     controller: RevenueController,
-//     action: "revenue_sum",
-// }
-// ]

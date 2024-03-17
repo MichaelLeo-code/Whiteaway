@@ -64,4 +64,25 @@ export class CustomerController {
             FROM customer;`)
     }
 
+    async top () {
+        console.log("top")
+        return this.customerRepository.query(`
+        SELECT
+            c."firstName",
+            c."lastName",
+            COUNT(o.id) AS num_orders,
+            SUM(oi.quantity * oi.price) AS total_value
+        FROM
+            "customer" c
+        JOIN
+            "order" o ON c.email = o.customer_email
+        JOIN
+            "order_item" oi ON o.id = oi.order_id
+        GROUP BY
+            c.email
+        ORDER BY
+            total_value DESC
+        LIMIT 5;`)
+    }
+
 }

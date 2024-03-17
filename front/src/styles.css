@@ -5,13 +5,14 @@ body{
 
 .card {
   height: 50px;
+
   position: relative;
 
   border-radius: 12px;
   background-color: rgb(30, 30, 30);
   padding: 20px;
   text-align: center;
-  width: 200px;
+  width: 210px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -33,6 +34,39 @@ body{
   top: 8px;
   left: 8px;
   color: rgb(102, 102, 102);
+}
+
+.card_of_leaders {
+  background-color: rgb(30, 30, 30);
+  position: relative;
+
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  margin-top: 30px;
+}
+
+.card-title{
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 6px;
+  color: rgb(102, 102, 102);
+  position: relative;
+  left: -8px;
+}
+
+.card-list
+{
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 6px;
+  color: white;
+  position: relative;
+  left: -24px;
+}
+
+.total-value{
+  color: rgb(127, 221, 127);
 }
 
 /* ABOVE IS TIME SELECTOR */
