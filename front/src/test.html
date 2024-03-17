@@ -4,38 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">   
-    
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+      
+    </style>
 </head>
 <body>
-    <div class="radioElement">
-        <div class="tabs">
-          <input
-            checked=""
-            value="HTML"
-            name="fav_language"
-            id="html"
-            type="radio"
-            class="input"
-          />
-          <label for="html" class="label">HTML</label>
-          <input
-            value="CSS"
-            name="fav_language"
-            id="css"
-            type="radio"
-            class="input"
-          />
-          <label for="css" class="label">CSS</label>
-          <input
-            value="JavaScript"
-            name="fav_language"
-            id="javascript"
-            type="radio"
-            class="input"
-          />
-          <label for="javascript" class="label">JavaScript</label>
-        </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="bg-primary py-3 text-center">Top Row</div>
+      </div>
     </div>
+    <div class="row">
+      <div class="col-lg-9 col-md-12 mb-3 mb-md-0">
+        <div class="bg-secondary py-5">Left Column (Takes as much space as possible)</div>
+      </div>
+      <div class="col-lg-3 col-md-12">
+        <div class="bg-info py-5" style="width: 50px;">Right Column (Always 50px)</div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>

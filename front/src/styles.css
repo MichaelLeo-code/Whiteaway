@@ -46,7 +46,7 @@ body{
 .radioElement {
     --radius: 16px;
     --border: 6px;
-    --height: 32px;
+    --height: 46px;
     --speed: 0.4s;
     display: grid;
     place-items: center;

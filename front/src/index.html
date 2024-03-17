@@ -4,69 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     
 </head>
 <body>
-  <div class="radioElement">
-    <div class="tabs">
-      <input
-        checked=""
-        value="customers"
-        name="select_chart"
-        id="html"
-        type="radio"
-        class="input"
-      />
-      <label for="html" class="label">Customers</label>
-      <input
-        value="orders"
-        name="select_chart"
-        id="css"
-        type="radio"
-        class="input"
-      />
-      <label for="css" class="label">Orders</label>
-      <input
-        value="revenue"
-        name="select_chart"
-        id="javascript"
-        type="radio"
-        class="input"
-      />
-      <label for="javascript" class="label">Revenue</label>
-    </div>
-</div>
 
-  <div class="chart_container">
-      <canvas id="chart"></canvas>
-  </div>
-
-  <!-- TIME SELECTOR -->
-  <div class="timeselector">
-    <div class="multi-range-slider">
-      <input type="range" id="input-left" min="1" max="12" value="2" step="1">
-      <input type="range" id="input-right" min="1" max="12" value="7" step="1">
-  
-      <div class="slider">
-        <div class="track"></div>
-        <div class="range"></div>
-        <div class="thumb left"></div>
-        <div class="thumb right"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <!-- CHOOSE CHART -->
+        <div class="radioElement py-4">
+          <div class="tabs">
+            <input
+              checked=""
+              value="customers"
+              name="select_chart"
+              id="html"
+              type="radio"
+              class="input"
+            />
+            <label for="html" class="label">Customers</label>
+            <input
+              value="orders"
+              name="select_chart"
+              id="css"
+              type="radio"
+              class="input"
+            />
+            <label for="css" class="label">Orders</label>
+            <input
+              value="revenue"
+              name="select_chart"
+              id="javascript"
+              type="radio"
+              class="input"
+            />
+            <label for="javascript" class="label">Revenue</label>
+          </div>
+        </div>
+        <!-- END OF CHOOSE CHART -->
       </div>
     </div>
-  </div>
-
-  <!-- CHIP WITH TOTAL NUMBER -->
-  <div class="card">
-    <div class="number" id="total_number">123</div>
-    <div class="description" id="total_number_description">Total amount of customers:</div>
+    <!-- END OF TOP ROW -->
+    
+    <div class="row">
+      <div class="col-lg-9 col-md-12 mb-3 mb-md-0">
+        <div class="chart_container py-5">
+          <canvas id="chart"></canvas>
+        </div>
+        <!-- TIME SELECTOR -->
+        <div class="timeselector">
+          <div class="multi-range-slider">
+            <input type="range" id="input-left" min="1" max="12" value="2" step="1">
+            <input type="range" id="input-right" min="1" max="12" value="7" step="1">
+        
+            <div class="slider">
+              <div class="track"></div>
+              <div class="range"></div>
+              <div class="thumb left"></div>
+              <div class="thumb right"></div>
+            </div>
+          </div>
+        </div>
+        <!-- END OF TIME SELECTOR -->
+      </div>
+      <div class="col-lg-3 col-md-12">
+        <div class="card py-5">
+          <!-- CHIP WITH TOTAL NUMBER -->
+          <div class="number" id="total_number">123</div>
+          <div class="description" id="total_number_description">Total customers amount:</div>
+          <!-- END OF CHIP -->
+        </div>
+      </div>
+    </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

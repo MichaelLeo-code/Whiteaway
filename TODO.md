@@ -6,7 +6,7 @@
   - [ ✓ ] visualize
     - [ ✓ ] open new tab 
     - [ ✓ ] change type of chartand render it
-  - [  ] time frames
+  - [ ✓ ] time frames
 
 ### [ ] Revenue
   - [ ✓ ] write SQL statements
@@ -15,7 +15,7 @@
   - [ ✓ ] visualize
     - [ ✓ ] open new tab 
     - [ ✓ ] change type of chartand render it
-  - [  ] time frames
+  - [] time frames
 
 ### [ ] Backend routing is AWFUL, fix
 ### [ ] OPTIMIZE FRONT: create separate functions ans separate files.
@@ -23,7 +23,7 @@
 ### Minor fixes:
 - [ ] frontend sends multiple request at a time
 - [ ] front: update tables only after releasing slider head
-- [ ] front: positioning of elements
+- [ ✓ ] front: positioning of elements
 ---
 ### Prev issues I don't have time to fix:
 - migrations don't work

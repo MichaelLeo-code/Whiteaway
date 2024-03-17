@@ -74,7 +74,7 @@ async function main(){
           switch(selectedChartType){
             case 'customers':
               document.querySelector("#total_number").textContent = total_customers
-              document.querySelector("#total_number_description").textContent = "Total amount of customers"
+              document.querySelector("#total_number_description").textContent = "Total customers amount:"
               renderChart(fetched_data.customerCounts, "new customers throughout months:", fetched_data.monthNames, 'bar')
               break
             case 'orders':
