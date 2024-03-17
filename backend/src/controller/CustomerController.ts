@@ -27,7 +27,7 @@ export class CustomerController {
         return customer
     }
 
-    async dates(request: Request, response: Response, next: NextFunction) {
+    async dates(request: Request) {
         console.log("dates")
 
         const start_date = request.query.start_date as string
@@ -35,7 +35,7 @@ export class CustomerController {
         return this.customerRepository.query(`SELECT * FROM customer WHERE "registerDate" BETWEEN '${start_date}' AND '${end_date}';`)
     }
 
-    async quantity_dates(request: Request, response: Response, next: NextFunction) {
+    async quantity_dates(request: Request) {
         console.log("quantity_dates")
 
         const start_date = request.query.start_date as string
@@ -57,7 +57,7 @@ export class CustomerController {
             EXTRACT(MONTH FROM "registerDate");`)
     }
 
-    async quantity_sum (request: Request, response: Response, next: NextFunction) {
+    async quantity_sum (request: Request) {
         console.log("quantity_sum")
         return this.customerRepository.query(`
             SELECT COUNT(*) AS total_customers

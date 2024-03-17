@@ -6,7 +6,7 @@ export class RevenueController {
 
     private customerRepository = AppDataSource.getRepository(OrderItem)
 
-    async revenue_dates(request: Request, response: Response, next: NextFunction) {
+    async revenue_dates(request: Request) {
         console.log("revenue_dates")
 
         const start_date = request.query.start_date as string
@@ -30,7 +30,7 @@ export class RevenueController {
             month;`)
     }
 
-    async revenue_sum (request: Request, response: Response, next: NextFunction) {
+    async revenue_sum (request: Request) {
         console.log("revenue_sum")
         return this.customerRepository.query(`
         SELECT SUM(price * quantity) AS total_revenue

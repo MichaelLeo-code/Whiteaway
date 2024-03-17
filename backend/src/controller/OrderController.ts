@@ -6,7 +6,7 @@ export class OrderController {
 
     private customerRepository = AppDataSource.getRepository(Order)
 
-    async quantity_dates(request: Request, response: Response, next: NextFunction) {
+    async quantity_dates(request: Request) {
         console.log("quantity_dates_ORDER")
 
         const start_date = request.query.start_date as string
@@ -28,7 +28,7 @@ export class OrderController {
             EXTRACT(MONTH FROM "purchaseDate");`)
     }
 
-    async quantity_sum (request: Request, response: Response, next: NextFunction) {
+    async quantity_sum (request: Request) {
         console.log("quantity_sum_ORDER")
         return this.customerRepository.query(`
             SELECT COUNT(*) AS total_orders

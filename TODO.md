@@ -1,5 +1,5 @@
 ## First of all, add two major pipelines
-### [ ] Orders
+### [ ✓ ] Orders
   - [ ✓ ] write SQL statements
   - [ ✓ ] create backend endpoints
   - [ ✓ ] create according fetch function
@@ -8,7 +8,7 @@
     - [ ✓ ] change type of chartand render it
   - [ ✓ ] time frames
 
-### [ ] Revenue
+### [] Revenue
   - [ ✓ ] write SQL statements
   - [ ✓ ] create backend endpoints
   - [ ✓ ] create according fetch function
@@ -17,7 +17,7 @@
     - [ ✓ ] change type of chartand render it
   - [] time frames
 
-### [ ] Backend routing is AWFUL, fix
+### [ ✓ ] Backend routing is AWFUL, fix
 ### [ ] OPTIMIZE FRONT: create separate functions ans separate files.
 
 ### Minor fixes:
