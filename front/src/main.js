@@ -103,9 +103,12 @@ async function updateTimeframes(inputLeft, inputRight){
       await renderChart(fetched_data.customerCounts, "new customers throughout months:", fetched_data.monthNames, 'bar')
       break
     case 'orders':
+      console.log('orders')
       fetched_data = await fetchOrders(inputLeft, inputRight)
       renderChart(fetched_data.orderCounts, "amount of orders throughout months:", fetched_data.monthNames, 'line')
+      break
     case 'revenue':
+      console.log('revenue')
       fetched_data = await fetchRevenue(inputLeft, inputRight)
       renderChart(fetched_data.revenues, "revenue each month:", fetched_data.monthNames, 'line')
       break
