@@ -33,20 +33,8 @@ export class RevenueController {
     async revenue_sum (request: Request, response: Response, next: NextFunction) {
         console.log("revenue_sum")
         return this.customerRepository.query(`
-        SELECT
-            EXTRACT(YEAR FROM o."purchaseDate") AS year,
-            EXTRACT(MONTH FROM o."purchaseDate") AS month,
-            SUM(oi.price * oi.quantity) AS revenue
-        FROM
-            order_item oi
-        JOIN
-            "order" o ON oi.order_id = o.id
-        GROUP BY
-            year,
-            month
-        ORDER BY
-            year,
-            month;`)
+        SELECT SUM(price * quantity) AS total_revenue
+        FROM order_item;`)
     }
 
 }
