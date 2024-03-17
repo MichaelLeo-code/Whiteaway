@@ -1,8 +1,9 @@
 async function fetchOrders(start_date, end_date) {
-    start_date.toString().padStart(2, '0')
-    end_date.toString().padStart(2, '0')
+    start_date = interpretNumberToDate(start_date)
+    end_date = interpretNumberToDate(end_date)
+
     try {
-        const response = await axios.get(url + `orders/quantity?start_date=2023-${start_date}-01&end_date=2023-${end_date}-01`)
+        const response = await axios.get(url + `orders/quantity?start_date=${start_date}-01&end_date=${end_date}-01`)
     
         const { data } = response;
     

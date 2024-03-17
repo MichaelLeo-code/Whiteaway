@@ -22,9 +22,14 @@
 ### [ ] Readme.md
 
 ### Minor fixes:
-- [ ] frontend sends multiple request at a time
-- [ ] front: update tables only after releasing slider head
+- [ ✓ ] frontend sends multiple request at a time
+- [ ✓ ] front: update tables only after releasing slider head
 - [ ✓ ] front: positioning of elements
+
+### Future features:
+- [ ] styling for timeselector
+- [ ] data accuracy (when watching single month, dont sum up the values)
+- [ ] top customers
 ---
 ### Prev issues I don't have time to fix:
 - migrations don't work

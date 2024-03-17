@@ -26,7 +26,7 @@ async function renderChart(data, chartName, labelNames, type) {
 }
 
 async function main(){
-    let fetched_customers = await fetchCustomers(1, 10)
+    let fetched_customers = await fetchCustomers(1, 16)
     let total_customers = await fetchTotalCustomers()
 
     document.querySelector("#total_number").textContent = total_customers
@@ -44,7 +44,6 @@ async function main(){
 
             case 'customers':
               const fetched_customers = await fetchCustomers(inputLeft.value, inputRight.value)
-              console.log(fetched_customers)
               const total_customers = await fetchTotalOrders()
 
               totalNumber = total_customers
@@ -85,7 +84,7 @@ async function updateTimeframes(inputLeft, inputRight){
   switch(selectedRadio.value){
     case 'customers':
       fetched_data = await fetchCustomers(inputLeft, inputRight)
-      renderChart(fetched_data.customerCounts, "new customers throughout months:", fetched_data.monthNames, 'bar')
+      await renderChart(fetched_data.customerCounts, "new customers throughout months:", fetched_data.monthNames, 'bar')
       break
     case 'orders':
       fetched_data = await fetchOrders(inputLeft, inputRight)
@@ -95,4 +94,13 @@ async function updateTimeframes(inputLeft, inputRight){
       renderChart(fetched_data.revenues, "revenue each month:", fetched_data.monthNames, 'line')
       break
   }
+}
+
+function interpretNumberToDate(value) {
+  const year = Math.floor(value / 12) + 2023
+  const month = (value % 12)
+  
+  const formattedDate = `${year}-${month.toString().padStart(2, '0')}`
+  
+  return formattedDate
 }

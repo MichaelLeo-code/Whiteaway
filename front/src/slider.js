@@ -17,8 +17,6 @@ async function setLeftValue() {
 
 	thumbLeft.style.left = percent + "%"
 	range.style.left = percent + "%"
-
-	updateTimeframes(_this.value, inputRight.value)
 }
 setLeftValue();
 
@@ -33,8 +31,6 @@ async function setRightValue() {
 
 	thumbRight.style.right = (100 - percent) + "%"
 	range.style.right = (100 - percent) + "%"
-
-    updateTimeframes(inputLeft.value, _this.value)
 }
 setRightValue()
 
@@ -51,6 +47,7 @@ inputLeft.addEventListener("mousedown", function() {
 	thumbLeft.classList.add("active")
 })
 inputLeft.addEventListener("mouseup", function() {
+	updateTimeframes(inputLeft.value, inputRight.value)
 	thumbLeft.classList.remove("active")
 })
 
@@ -64,5 +61,6 @@ inputRight.addEventListener("mousedown", function() {
 	thumbRight.classList.add("active")
 })
 inputRight.addEventListener("mouseup", function() {
+	updateTimeframes(inputLeft.value, inputRight.value)
 	thumbRight.classList.remove("active")
 })
