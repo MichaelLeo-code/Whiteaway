@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+</head>
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <!-- CHOOSE CHART -->
+        <div class="radioElement py-4">
+          <div class="tabs">
+            <input
+              checked=""
+              value="customers"
+              name="select_chart"
+              id="html"
+              type="radio"
+              class="input"
+            />
+            <label for="html" class="label">Customers</label>
+            <input
+              value="orders"
+              name="select_chart"
+              id="css"
+              type="radio"
+              class="input"
+            />
+            <label for="css" class="label">Orders</label>
+            <input
+              value="revenue"
+              name="select_chart"
+              id="javascript"
+              type="radio"
+              class="input"
+            />
+            <label for="javascript" class="label">Revenue</label>
+          </div>
+        </div>
+        <!-- END OF CHOOSE CHART -->
+      </div>
+    </div>
+    <!-- END OF TOP ROW -->
+    
+    <div class="row">
+      <div class="col-lg-8 col-md-12 mb-3 mb-md-0">
+        <div class="chart_container py-3">
+          <canvas id="chart"></canvas>
+        </div>
+        <!-- TIME SELECTOR -->
+        <div class="timeselector">
+          <div class="multi-range-slider">
+            <input type="range" id="input-left" min="1" max="16" value="1" step="1">
+            <input type="range" id="input-right" min="1" max="16" value="16" step="1">
+        
+            <div class="slider">
+              <div class="track"></div>
+              <div class="range"></div>
+              <div class="thumb left"></div>
+              <div class="thumb right"></div>
+            </div>
+          </div>
+        </div>
+        <!-- END OF TIME SELECTOR -->
+      </div>
+      <div class="col-lg-4 col-md-12">
+        <!-- CHIP WITH TOTAL NUMBER -->
+        <div class="card py-5">
+          <div class="number" id="total_number">123</div>
+          <div class="description" id="total_number_description">Total customers amount:</div>
+        </div>
+        <!-- END OF CHIP -->
+
+        <div class="card_of_leaders py-2">
+          <div class="card-title">Top customers and their revenue:</div>
+          <ul class="card-list">
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="/front/src/fetch/orderFetchFunctions.js"></script>
+  <script src="/front/src/fetch/revenueFetchFunctions.js"></script>
+  <script src="/front/src/fetch/customersFetchFunctions.js"></script>
+  <script src="main.js"></script>
+  <script src="slider.js"></script>
+</body>
+</html>

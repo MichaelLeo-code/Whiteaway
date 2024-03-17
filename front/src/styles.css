@@ -1,0 +1,197 @@
+body{
+    background-color: rgb(40, 40, 40);
+    font-family: "Roboto", sans-serif;
+}
+
+.card {
+  height: 50px;
+
+  position: relative;
+
+  border-radius: 12px;
+  background-color: rgb(30, 30, 30);
+  padding: 20px;
+  text-align: center;
+  width: 210px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.number {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: white;
+}
+
+.description {
+  font-size: 16px;
+  font-weight: 500;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  color: rgb(102, 102, 102);
+}
+
+.card_of_leaders {
+  background-color: rgb(30, 30, 30);
+  position: relative;
+
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  margin-top: 30px;
+}
+
+.card-title{
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 6px;
+  color: rgb(102, 102, 102);
+  position: relative;
+  left: -8px;
+}
+
+.card-list
+{
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 6px;
+  color: white;
+  position: relative;
+  left: -24px;
+}
+
+.total-value{
+  color: rgb(127, 221, 127);
+}
+
+/* ABOVE IS TIME SELECTOR */
+
+.timeselector{
+  padding: 50px;
+}
+
+/* ABOVE IS RADIO BUTTON */
+
+.radioElement {
+    --radius: 16px;
+    --border: 6px;
+    --height: 46px;
+    --speed: 0.4s;
+    display: grid;
+    place-items: center;
+    align-content: center;
+    font-family: "Roboto", sans-serif;
+  }
+  
+  .tabs {
+    height: var(--height);
+    display: grid;
+    grid-auto-flow: column;
+    background:rgb(25, 25, 25);
+    border-radius: var(--radius);
+    grid-auto-columns: 1fr;
+    position: relative;
+    border: var(--border) solid rgb(25, 25, 25);
+  }
+  
+  .tabs {
+    --ease: linear(
+      0,
+      0.1641 3.52%,
+      0.311 7.18%,
+      0.4413 10.99%,
+      0.5553 14.96%,
+      0.6539 19.12%,
+      0.738 23.5%,
+      0.8086 28.15%,
+      0.8662 33.12%,
+      0.9078 37.92%,
+      0.9405 43.12%,
+      0.965 48.84%,
+      0.9821 55.28%,
+      0.992 61.97%,
+      0.9976 70.09%,
+      1
+    );
+  }
+  
+  .tabs > .input,
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  .tabs:has(:checked:nth-of-type(1)) {
+    --active: 0;
+  }
+  .tabs:has(:checked:nth-of-type(2)) {
+    --active: 1;
+  }
+  .tabs:has(:checked:nth-of-type(3)) {
+    --active: 2;
+  }
+ 
+  
+  .tabs :checked + .label {
+    --highlight: 1;
+  }
+  
+  .tabs:has(.input:nth-of-type(2)) {
+    --count: 2;
+  }
+  .tabs:has(.input:nth-of-type(3)) {
+    --count: 3;
+  }
+  
+  .tabs .label {
+    padding: 0 clamp(10px, 10px + 10px, 20px);
+    cursor: pointer;
+    text-align: center;
+    height: 100%;
+    display: grid;
+    border-radius: calc(var(--radius) - var(--border));
+    place-items: center;
+    color: hsl(0 0% 100% / calc(0.3 + var(--highlight, 0)));
+    transition: background, color;
+    transition-duration: 0.25s;
+    transition-timing-function: var(--ease, ease);
+    user-select: none;
+  }
+  
+  .input:not(:checked) + .label:hover {
+    --highlight: 0.1;
+    background: rgb(30, 30, 30);
+  }
+  
+  .tabs::after {
+    pointer-events: none;
+    content: "";
+    width: calc(100% / var(--count));
+    height: 100%;
+    background: rgb(40, 40, 40);
+    position: absolute;
+    border-radius: calc(var(--radius) - var(--border));
+    mix-blend-mode: lighten;
+    translate: calc(var(--active, 0) * 100%) 0;
+    transition: translate, outline-color;
+    transition-duration: var(--speed);
+    transition-timing-function: var(--ease, ease);
+    outline: 2px solid transparent;
+  }
+  
+  .tabs:has(:focus-visible)::after {
+    outline-color: rgb(255, 255, 255);
+  }
+  
