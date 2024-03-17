@@ -113,8 +113,8 @@ async function updateTimeframes(inputLeft, inputRight){
 }
 
 function interpretNumberToDate(value) {
-  const year = Math.floor(value / 12) + 2023
-  const month = (value % 12)
+  const year = Math.floor(value / 13) + 2023
+  const month = ((value - 1) % 12) + 1 
   
   const formattedDate = `${year}-${month.toString().padStart(2, '0')}`
   

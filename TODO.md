@@ -26,6 +26,7 @@
 - [ ✓ ] frontend sends multiple request at a time
 - [ ✓ ] front: update tables only after releasing slider head
 - [ ✓ ] front: positioning of elements
+- [ ] front: have to refresh page after resizing
 
 ### Future features:
 - [ ] styling for timeselector

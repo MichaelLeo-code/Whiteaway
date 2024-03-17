@@ -2,6 +2,9 @@ async function fetchCustomers(start_date, end_date) {
     start_date = interpretNumberToDate(start_date)
     end_date = interpretNumberToDate(end_date)
 
+    console.log(start_date)
+    console.log(end_date)
+
     try {
         const response = await axios.get(url + `customers/quantity?start_date=${start_date}-01&end_date=${end_date}-01`)
         const { data } = response;
