@@ -34,12 +34,12 @@ const chart = document.querySelector('#chart').getContext('2d')
 const radioButtons = document.querySelectorAll('input[name="select_chart"]');
 let customersChart
 
-async function renderChart(data, chartName, labelNames) {  
+async function renderChart(data, chartName, labelNames, type) {  
     if(customersChart){
         customersChart.destroy()
     }
     customersChart = new Chart(chart, {
-      type: 'bar',
+      type: type,
       data: {
         labels: labelNames,
         datasets: [{
@@ -58,34 +58,46 @@ async function renderChart(data, chartName, labelNames) {
 async function main(){
     const fetched_data = await fetchCustomers(1, 10)
     const total_customers = await fetchTotalCustomers()
+
     console.log(fetched_data)
     console.log(total_customers)
 
     document.querySelector("#total_number").textContent = total_customers
+    renderChart(fetched_data.customerCounts, "new customers throughout months:", fetched_data.monthNames, 'bar')   
 
     radioButtons.forEach(radioButton => {
-        radioButton.addEventListener('change', (event) => {
+      //is it safe to call it async??
+      //may put all the fetches at the end of main to run them when everything is rendered.
+        radioButton.addEventListener('change', async function(event) {
             const selectedChartType = event.target.value
 
             switch(selectedChartType){
                 case 'customers':
-                    data = [100, 100, 100]
+                    renderChart(fetched_data.customerCounts, "new customers throughout months:", fetched_data.monthNames, 'bar')
                     break
                 case 'orders':
-                    data = [100, 200, 300]
+                    console.log('order')
+                    const fetched_orders = await fetchOrders(1, 10)
+                    renderChart(fetched_orders.orderCounts, "amount of orders throughout months:", fetched_orders.monthNames, 'line')
+                    const total_orders = await fetchTotalOrders()
+                    document.querySelector("#total_number").textContent = total_orders
+                    document.querySelector("#total_number_description").textContent = "Total amount of orders:"
                     break
                 case 'orderItems':
                     data = [300, 200, 100]
                     break
             }
-            renderChart(data)
+            // renderChart(data)
         })
       })
-    renderChart(fetched_data.customerCounts, "new customers throughout months:", fetched_data.monthNames)
 }
 
 main()
 
 function test(){
     console.log('test')
+}
+
+async function radioButtonAction(event){
+  
 }

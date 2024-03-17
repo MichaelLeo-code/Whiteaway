@@ -1,16 +1,19 @@
-import { Entity, Column, PrimaryColumn, ManyToOne, JoinColumn } from "typeorm"
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from "typeorm"
 import { Order } from "./Order"
 
 @Entity()
 export class OrderItem {
-    @PrimaryColumn()
+    @Column()
     EAN: string
 
     @Column()
     quantity: number
 
-    @Column()
+    @Column({ type: "float" })
     price: number
+
+    @PrimaryGeneratedColumn()
+    id: number
 
     @ManyToOne(() => Order, order => order.ordersItems)
     @JoinColumn({ name: 'order_id' })

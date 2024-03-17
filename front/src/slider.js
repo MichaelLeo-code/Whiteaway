@@ -19,7 +19,7 @@ async function setLeftValue() {
 	range.style.left = percent + "%"
 
     const fetched_data = await fetchCustomers(_this.value, inputRight.value)
-    renderChart(fetched_data.customerCounts, "new customers throughout months:", fetched_data.monthNames)
+    renderChart(fetched_data.customerCounts, "new customers throughout months:", fetched_data.monthNames, 'bar')
 }
 setLeftValue();
 
@@ -36,7 +36,7 @@ async function setRightValue() {
 	range.style.right = (100 - percent) + "%"
 
     const fetched_data = await fetchCustomers(inputLeft.value, _this.value)
-    renderChart(fetched_data.customerCounts, "new customers throughout months:", fetched_data.monthNames)
+    renderChart(fetched_data.customerCounts, "new customers throughout months:", fetched_data.monthNames, 'bar')
 }
 setRightValue()
 
