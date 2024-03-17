@@ -20,6 +20,7 @@
 ### [ ✓ ] Backend routing is AWFUL, fix
 ### [ +- ] OPTIMIZE FRONT: create separate functions ans separate files.
 ### [ ] Readme.md
+### [ ] TESTING
 
 ### Minor fixes:
 - [ ✓ ] frontend sends multiple request at a time
