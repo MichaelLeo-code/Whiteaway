@@ -21,3 +21,6 @@ The testing of this project was conducted mostly manually, except Postman collec
 But I'm happy of my planning - my plan was to learn TS on Thursday, make backend on Friday, make frontend on Saturday, and Sunday was left for finishing up. And that's exactly how it went. 
 
 Down there will be a quick demo video:
+
+https://github.com/MichaelLeo-code/Whiteaway/assets/114170504/ed6968e9-7a40-483b-a1db-b9e9e49b633e
+
