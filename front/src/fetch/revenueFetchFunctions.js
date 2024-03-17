@@ -20,7 +20,7 @@ async function fetchRevenue(start_date, end_date) {
 }
 
 async function fetchTotalRevenue() {
-    return axios.get(url + 'revenue/sum')
+    return axios.get(url + 'revenue')
         .then(response => response.data[0].total_revenue)
         .catch(error => console.error('Error fetching data:', error))
 }

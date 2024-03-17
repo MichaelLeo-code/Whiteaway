@@ -20,7 +20,7 @@ async function fetchOrders(start_date, end_date) {
 }
 
 async function fetchTotalOrders() {
-    return axios.get(url + 'orders/quantity/sum')
+    return axios.get(url + 'orders/quantity')
         .then(response => response.data[0].total_orders)
         .catch(error => console.error('Error fetching data:', error))
 }

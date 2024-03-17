@@ -8,17 +8,18 @@
     - [ ✓ ] change type of chartand render it
   - [ ✓ ] time frames
 
-### [] Revenue
+### [ ✓ ] Revenue
   - [ ✓ ] write SQL statements
   - [ ✓ ] create backend endpoints
   - [ ✓ ] create according fetch function
   - [ ✓ ] visualize
     - [ ✓ ] open new tab 
     - [ ✓ ] change type of chartand render it
-  - [] time frames
+  - [ ✓ ] time frames
 
 ### [ ✓ ] Backend routing is AWFUL, fix
-### [ ] OPTIMIZE FRONT: create separate functions ans separate files.
+### [ +- ] OPTIMIZE FRONT: create separate functions ans separate files.
+### [ ] Readme.md
 
 ### Minor fixes:
 - [ ] frontend sends multiple request at a time
